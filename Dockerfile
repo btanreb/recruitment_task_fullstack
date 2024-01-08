@@ -14,14 +14,14 @@ COPY . .
 
 USER root
 
-RUN npm install
+# RUN npm install
 
-RUN composer install
+# RUN composer install
 
 RUN mkdir -p /var/www/html/public/build
-RUN chown -R www-data:www-data /var/www
+# RUN chown -R www-data:www-data /var/www
 
-RUN npm run build
+# RUN npm run build
 
 COPY ./000-default.conf /etc/apache2/sites-available/
 
@@ -29,6 +29,6 @@ RUN a2enmod rewrite
 
 RUN service apache2 restart
 
-USER www-data
+# USER www-data
 
 EXPOSE 80 443

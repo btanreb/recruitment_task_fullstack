@@ -7,9 +7,11 @@ services:
       dockerfile: Dockerfile
     container_name: recruitment-webserver
     restart: unless-stopped
+    volumes:
+      - ./:/var/www/html:delegated
     ports:
-      - "80:80"
+      - "9410:80"
     environment:
-      - APACHE_RUN_USER=www-data
-      - APACHE_RUN_GROUP=www-data
+      # - APACHE_RUN_USER=www-data
+      # - APACHE_RUN_GROUP=www-data
       - APACHE_DOCUMENT_ROOT=/var/www/html/public
